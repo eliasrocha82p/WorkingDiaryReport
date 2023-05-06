@@ -1,1 +1,1 @@
-alert("from index.js")
+document.querySelector("#authorize_button").addEventListener("click", handleAuthClick)
