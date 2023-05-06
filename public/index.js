@@ -53,3 +53,9 @@ function gisLoaded() {
         gisInited = true;
         maybeEnableButtons();
       }
+      
+ function maybeEnableButtons() {
+  if (gapiInited && gisInited) {
+   document.getElementById('authorize_button').style.visibility = 'visible';
+  }
+ }
