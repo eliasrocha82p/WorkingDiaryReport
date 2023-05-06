@@ -1,10 +1,21 @@
-const CLIENT_ID = '782340290651-dvh3coksj8oplephm4h6u4d8pdi7i4jv.apps.googleusercontent.com';
+const CLIENT_ID = 
+'782340290651-dvh3coksj8oplephm4h6u4d8pdi7i4jv.apps.googleusercontent.com';
 
-const API_KEY = 'AIzaSyA3KY-zyck80RUM-8POgcTYiKEtGTmLE6Y';
+const API_KEY = 
+'AIzaSyA3KY-zyck80RUM-8POgcTYiKEtGTmLE6Y';
 
-const SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly';
+const SCOPES = 
+'https://www.googleapis.com/auth/spreadsheets.readonly';
 
-const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
+const DISCOVERY_DOC = 
+'https://sheets.googleapis.com/$discovery/rest?version=v4';
+
+function maybeEnableButtons() {
+    if (gapiInited && gisInited) {
+       document.getElementById('authorize_button')
+       .style.visibility = 'visible';
+    }
+}
      
 document
 .getElementById('authorize_button')
