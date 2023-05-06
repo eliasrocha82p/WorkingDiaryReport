@@ -59,3 +59,12 @@ function gisLoaded() {
    document.getElementById('authorize_button').style.visibility = 'visible';
   }
  }
+ function handleAuthClick() {
+        tokenClient.callback = async (resp) => {
+          if (resp.error !== undefined) {
+            throw (resp);
+          }
+          document.getElementById('signout_button').style.visibility = 'visible';
+          document.getElementById('authorize_button').innerText = 'Refresh';
+          await listMajors();
+        };
