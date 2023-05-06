@@ -17,6 +17,9 @@ function maybeEnableButtons() {
     }
 }
 
+function gapiLoaded() {
+ gapi.load('client', initializeGapiClient);
+}
 let tokenClient;
 let gapiInited = false;
 let gisInited = false;
