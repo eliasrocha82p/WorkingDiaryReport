@@ -16,7 +16,11 @@ function maybeEnableButtons() {
        .style.visibility = 'visible';
     }
 }
-     
+
+let tokenClient;
+let gapiInited = false;
+let gisInited = false;
+      
 document
 .getElementById('authorize_button')
 .style.visibility = 'hidden';
