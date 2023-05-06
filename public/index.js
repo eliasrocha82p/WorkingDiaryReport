@@ -10,16 +10,7 @@ const SCOPES =
 const DISCOVERY_DOC = 
 'https://sheets.googleapis.com/$discovery/rest?version=v4';
 
-function maybeEnableButtons() {
-    if (gapiInited && gisInited) {
-       document.getElementById('authorize_button')
-       .style.visibility = 'visible';
-    }
-}
 
-function gapiLoaded() {
- gapi.load('client', initializeGapiClient);
-}
 
 
 let tokenClient;
@@ -41,3 +32,14 @@ document
 document
 .getElementById("signout_button")
 .addEventListener("click",handleSignoutClick)
+
+function maybeEnableButtons() {
+    if (gapiInited && gisInited) {
+       document.getElementById('authorize_button')
+       .style.visibility = 'visible';
+    }
+}
+
+function gapiLoaded() {
+ gapi.load('client', initializeGapiClient);
+}
