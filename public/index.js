@@ -39,3 +39,7 @@ function maybeEnableButtons() {
        .style.visibility = 'visible';
     }
 }
+
+function gapiLoaded() {
+        gapi.load('client', initializeGapiClient);
+      }
