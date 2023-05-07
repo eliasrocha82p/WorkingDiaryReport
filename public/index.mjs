@@ -1,6 +1,6 @@
 document.getElementById("pre").innerText="true"
 import {API_KEY, CLIENT_ID} from "../modules/credentials.mjs"
-document.getElementById("pos").innerText="true"
+let msg = document.getElementById("pos").innerText="true"
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
        /* exported handleAuthClick */ 
@@ -25,6 +25,7 @@ document.getElementById("pos").innerText="true"
         * Callback after api.js is loaded. 
         */ 
        function gapiLoaded() { 
+         msg.innerText="gapiLoaded"
          gapi.load('client', initializeGapiClient); 
        } 
   
