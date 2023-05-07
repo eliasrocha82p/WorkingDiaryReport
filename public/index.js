@@ -59,7 +59,7 @@ function gisLoaded() {
    document.getElementById('authorize_button').style.visibility = 'visible';
   }
  }
- function handleAuthClick() {
+/* function handleAuthClick() {
         tokenClient.callback = async (resp) => {
           if (resp.error !== undefined) {
             throw (resp);
