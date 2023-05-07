@@ -1,3 +1,5 @@
+     import * from "https://apis.google.com/js/api.js"
+     
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
        /* exported handleAuthClick */ 
@@ -127,3 +129,5 @@
              'Name, Major:\n'); 
          document.getElementById('content').innerText = output; 
        }
+       
+       gapiLoaded()
