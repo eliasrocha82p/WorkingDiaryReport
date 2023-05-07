@@ -1,4 +1,4 @@
-
+alert("loading index js")
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
        /* exported handleAuthClick */ 
