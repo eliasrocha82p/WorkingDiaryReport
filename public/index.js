@@ -78,7 +78,7 @@ function gisLoaded() {
  }
  };
  
- function handleSignoutClick() {
+ /*function handleSignoutClick() {
         const token = gapi.client.getToken();
         if (token !== null) {
           google.accounts.oauth2.revoke(token.access_token);
