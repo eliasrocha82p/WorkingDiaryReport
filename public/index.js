@@ -1,4 +1,4 @@
-alert("loading index js")
+
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
        /* exported handleAuthClick */ 
@@ -51,6 +51,7 @@ alert("loading index js")
            callback: '', // defined later 
          }); 
          gisInited = true; 
+         alert(gisInited)
          maybeEnableButtons(); 
        } 
   
