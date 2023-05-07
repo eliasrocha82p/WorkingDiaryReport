@@ -1,5 +1,5 @@
 document.getElementById("pre").innerText="true"
-import {API_KEY, CLIENT_ID} from "../modules/credentials.js"
+import {API_KEY, CLIENT_ID} from "../modules/credentials.mjs"
 document.getElementById("pos").innerText="true"
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
