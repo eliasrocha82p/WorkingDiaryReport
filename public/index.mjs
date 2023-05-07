@@ -35,7 +35,7 @@ let msg = document.getElementById("pos").innerText="true"
         */ 
        async function initializeGapiClient() { 
          await gapi.client.init({ 
-           apiKey: API_KEY, 
+           apiKey: credentials.API_KEY, 
            discoveryDocs: [DISCOVERY_DOC], 
          }); 
          gapiInited = true; 
@@ -47,7 +47,7 @@ let msg = document.getElementById("pos").innerText="true"
         */ 
        function gisLoaded() { 
          tokenClient = google.accounts.oauth2.initTokenClient({ 
-           client_id: CLIENT_ID, 
+           client_id: credendtials.CLIENT_ID, 
            scope: SCOPES, 
            callback: '', // defined later 
          }); 
