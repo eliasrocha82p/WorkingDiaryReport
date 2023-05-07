@@ -25,7 +25,6 @@
         * Callback after api.js is loaded. 
         */ 
        function gapiLoaded() { 
-          console.log("from gapiLoaded")
          gapi.load('client', initializeGapiClient); 
        } 
   
@@ -128,7 +127,3 @@
              'Name, Major:\n'); 
          document.getElementById('content').innerText = output; 
        }
-       document.getElementById("authorize_button")
-       .addEventListener("click",handleAuthClick)
-       document.getElementById("signout_button")
-       .addEventListener("click",handleSignoutClick)
