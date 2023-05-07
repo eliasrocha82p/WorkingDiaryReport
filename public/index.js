@@ -1,7 +1,4 @@
-importScripts("https://apis.google.com/js/api.js")
-importScripts("https://accounts.google.com/gsi/client")
-  gapiLoaded()
-  gisLoaded()
+
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
        /* exported handleAuthClick */ 
@@ -28,6 +25,7 @@ importScripts("https://accounts.google.com/gsi/client")
         * Callback after api.js is loaded. 
         */ 
        function gapiLoaded() { 
+          alert("from gapi")
          gapi.load('client', initializeGapiClient); 
        } 
   
