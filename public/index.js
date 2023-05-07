@@ -1,4 +1,5 @@
 import {API_KEY, CLIENT_ID} from "../modules/credentials.js"
+document.getElementById("ptitle").innerText="7"
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
        /* exported handleAuthClick */ 
