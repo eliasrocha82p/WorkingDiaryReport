@@ -1,10 +1,8 @@
-    import "https://apis.google.com/js/api.js"
-    import "https://accounts.google.com/gsi/client"
+
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
        /* exported handleAuthClick */ 
        /* exported handleSignoutClick */ 
-  
        // TODO(developer): Set to client ID and API key from the Developer Console 
        const CLIENT_ID = '782340290651-dvh3coksj8oplephm4h6u4d8pdi7i4jv.apps.googleusercontent.com'; 
        const API_KEY = 'AIzaSyA3KY-zyck80RUM-8POgcTYiKEtGTmLE6Y'; 
@@ -134,6 +132,3 @@
        .addEventListener("click",handleAuthClick)
        document.getElementById("signout_button")
        .addEventListener("click",handleSignoutClick)
-   console.log(JSON.parse(document.getElementById("authorize_button")))
-       gapiLoaded()
-       gisLoaded()
