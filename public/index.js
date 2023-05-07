@@ -1,4 +1,4 @@
-     import * from "https://apis.google.com/js/api.js"
+     import * as gapi from "https://apis.google.com/js/api.js"
      
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
