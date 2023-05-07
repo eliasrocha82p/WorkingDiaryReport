@@ -27,6 +27,7 @@
         * Callback after api.js is loaded. 
         */ 
        function gapiLoaded() { 
+          console.log("from gapiLoaded")
          gapi.load('client', initializeGapiClient); 
        } 
   
