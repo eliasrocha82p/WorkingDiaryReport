@@ -130,5 +130,9 @@
              'Name, Major:\n'); 
          document.getElementById('content').innerText = output; 
        }
-       console.log(handleAuthClick)
+       document.getElementById("authorize_button")
+       .addEventListener("click",handleAuthClick)
+       document.getElementById("signout_button")
+       .addEventListener("click",handleSignoutClick)
+   console.log(JSON.parse(document.getElementById("authorize_button")))
        gapiLoaded()
