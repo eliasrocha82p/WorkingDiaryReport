@@ -1,5 +1,6 @@
+document.getElementById("pre").innerText="true"
 import {API_KEY, CLIENT_ID} from "../modules/credentials.js"
-document.getElementById("ptitle").innerText="7"
+document.getElementById("pos").innerText="true"
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
        /* exported handleAuthClick */ 
