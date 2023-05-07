@@ -1,5 +1,5 @@
-     import "https://apis.google.com/js/api.js"
-     console.log(gapi)
+    import "https://apis.google.com/js/api.js"
+    import "https://accounts.google.com/gsi/client"
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
        /* exported handleAuthClick */ 
@@ -130,5 +130,5 @@
              'Name, Major:\n'); 
          document.getElementById('content').innerText = output; 
        }
-       
+       console.log(handleAuthClick)
        gapiLoaded()
