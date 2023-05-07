@@ -1,6 +1,7 @@
 importScripts("https://apis.google.com/js/api.js")
 importScripts("https://accounts.google.com/gsi/client")
-  
+  gapiLoaded()
+  gisLoaded()
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
        /* exported handleAuthClick */ 
