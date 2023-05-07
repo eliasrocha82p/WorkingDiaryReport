@@ -1,5 +1,5 @@
-const gapi = "https://apis.google.com/js/api.js"
-const google = "https://accounts.google.com/gsi/client"
+importScripts("https://apis.google.com/js/api.js")
+importScripts("https://accounts.google.com/gsi/client")
   
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
