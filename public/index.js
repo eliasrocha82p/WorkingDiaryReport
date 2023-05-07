@@ -88,8 +88,8 @@ function gisLoaded() {
           document.getElementById('signout_button').style.visibility = 'hidden';
         }
       };
-const range = response.result;
+/*const range = response.result;
         if (!range || !range.values || range.values.length == 0) {
           document.getElementById('content').innerText = 'No values found.';
           return;
-        };
+        };*/
