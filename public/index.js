@@ -1,5 +1,5 @@
-     import * as gapi from "https://apis.google.com/js/api.js"
-     
+     import "https://apis.google.com/js/api.js"
+     console.log(gapi)
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
        /* exported handleAuthClick */ 
