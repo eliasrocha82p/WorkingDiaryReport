@@ -1,4 +1,4 @@
-
+import {API_KEY, CLIENT_ID} from "../modules/credentials.js"
       /* exported gapiLoaded */ 
        /* exported gisLoaded */ 
        /* exported handleAuthClick */ 
