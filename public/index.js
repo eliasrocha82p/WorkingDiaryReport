@@ -136,3 +136,4 @@
        .addEventListener("click",handleSignoutClick)
    console.log(JSON.parse(document.getElementById("authorize_button")))
        gapiLoaded()
+       gisLoaded()
