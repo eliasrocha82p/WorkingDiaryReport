@@ -36,7 +36,7 @@ const CLIENT_ID = '782340290651-dvh3coksj8oplephm4h6u4d8pdi7i4jv.apps.googleuser
         */ 
        async function initializeGapiClient() { 
          await gapi.client.init({ 
-           apiKey: credential.API_KEY, 
+           apiKey: API_KEY, 
            discoveryDocs: [DISCOVERY_DOC], 
          }); 
          gapiInited = true; 
@@ -48,7 +48,7 @@ const CLIENT_ID = '782340290651-dvh3coksj8oplephm4h6u4d8pdi7i4jv.apps.googleuser
         */ 
        function gisLoaded() { 
          tokenClient = google.accounts.oauth2.initTokenClient({ 
-           client_id: credential.CLIENT_ID, 
+           client_id: CLIENT_ID, 
            scope: SCOPES, 
            callback: '', // defined later 
          }); 
