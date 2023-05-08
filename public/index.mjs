@@ -53,7 +53,6 @@ const CLIENT_ID = '782340290651-dvh3coksj8oplephm4h6u4d8pdi7i4jv.apps.googleuser
            callback: '', // defined later 
          }); 
          gisInited = true; 
-         alert(gisInited)
          maybeEnableButtons(); 
        } 
   
