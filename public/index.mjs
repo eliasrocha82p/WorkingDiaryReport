@@ -24,8 +24,7 @@ const CLIENT_ID = '782340290651-dvh3coksj8oplephm4h6u4d8pdi7i4jv.apps.googleuser
        /** 
         * Callback after api.js is loaded. 
         */ 
-       function gapiLoaded() { 
-         msg.innerText="gapiLoaded"
+       function gapiLoaded() {
          gapi.load('client', initializeGapiClient); 
        } 
   
