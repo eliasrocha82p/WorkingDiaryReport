@@ -1,5 +1,5 @@
 const API_KEY="AIzaSyA3KY-zyck80RUM-8POgcTYiKEtGTmLE6Y"
-const CLIENT_ID = '782340290651-dvh3coksj8oplephm4h6u4d8pdi7i4jv.apps.googleusercontent.com'; 
+const CLIENT_ID = '782340290651-dvh3coksj8oplephm4h6u4d8pdi7i4jv.apps.googleusercontent.com'
 
 let msg = document.getElementById("pos").innerText="true"
       /* exported gapiLoaded */ 
@@ -36,7 +36,7 @@ let msg = document.getElementById("pos").innerText="true"
         */ 
        async function initializeGapiClient() { 
          await gapi.client.init({ 
-           apiKey: credentials.API_KEY, 
+           apiKey: API_KEY, 
            discoveryDocs: [DISCOVERY_DOC], 
          }); 
          gapiInited = true; 
@@ -48,7 +48,7 @@ let msg = document.getElementById("pos").innerText="true"
         */ 
        function gisLoaded() { 
          tokenClient = google.accounts.oauth2.initTokenClient({ 
-           client_id: credendtials.CLIENT_ID, 
+           client_id: CLIENT_ID, 
            scope: SCOPES, 
            callback: '', // defined later 
          }); 
