@@ -3,5 +3,5 @@ export const credentials = {
    API_KEY : 'AIzaSyA3KY-zyck80RUM-8POgcTYiKEtGTmLE6Y'
 };
 export function getKey(){
-   return credentials.API_KEY
+   return credentials.CLIENT_ID
 }
