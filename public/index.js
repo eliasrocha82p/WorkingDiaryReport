@@ -1,5 +1,5 @@
 import {getKey} from "./../modules/credentials.js"
 import "./../modules/sheets.js"
 const p=document.createElement("h1")
-p.innerHTML=SCOPES
+p.innerHTML=getKey()
 document.body.appendChild(p)
