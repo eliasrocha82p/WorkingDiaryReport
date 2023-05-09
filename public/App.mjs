@@ -1,2 +1,4 @@
-import credentials from "./credentials.mjs"
-console.log(API_KEY)
+//import credentials from "./credentials.mjs"
+const p=document.createElement("h1")
+p.innerHTML="Ola elias"
+document.body.appendChild(p)
