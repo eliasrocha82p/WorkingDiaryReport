@@ -1,5 +1,13 @@
-import {getKey} from "./../modules/credentials.js"
-import "./../modules/sheets.js"
-const p=document.createElement("h1")
-p.innerHTML=getKey()
-document.body.appendChild(p)
+//import {getKey} from "./../modules/credentials.js"
+import {
+   gapiLoaded,
+   gisLoaded,
+   handleAuthClick,
+   handleSignoutClick
+} from "./../modules/sheets.js"
+document.getElementById("authorize_button")
+.addEventListener("click",handleAuthClick)
+document.getElementById("signout_button")
+.addEventListener("click",handleSignoutClick)
+gapiLoaded()
+gisLoaded()
