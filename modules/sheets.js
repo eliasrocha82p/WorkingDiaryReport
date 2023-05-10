@@ -1,7 +1,8 @@
 import {
    CLIENT_ID,
    API_KEY,SCOPES,
-   DISCOVERY_DOC} from 
+   DISCOVERY_DOC,
+} from 
 "./credentials.js"
 //import "https://accounts.google.com/gsi/client"
 //<!--   <script async defer type="text/javascrip
@@ -108,8 +109,9 @@ export {handleSignoutClick}
         try {
           // Fetch first 10 files
           response = await gapi.client.sheets.spreadsheets.values.get({
-            spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-            range: 'Class Data!A2:E',
+            spreadsheetId: '15xylkcHWFk9_sBDSE1rNyet7FLkwxEZSTol6h3CmsrU',
+            range: 'maquinas!A2:C',
+            majorDimension:'ROWS'
           });
         } catch (err) {
           document.getElementById('content').innerText = err.message;
@@ -122,7 +124,7 @@ export {handleSignoutClick}
         }
         // Flatten to string to display
         const output = range.values.reduce(
-            (str, row) => `${str}${row[0]}, ${row[4]}\n`,
-            'Name, Major:\n');
+            (str, row) => `${str}${row[0]},${row[1]}, ${row[2]}\n`,
+            '');
         document.getElementById('content').innerText = output;
       }
