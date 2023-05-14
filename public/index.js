@@ -1,17 +1,19 @@
 import {
-   gapiLoaded,
-   gisLoaded,
-   handleAuthClick,
-   handleSignoutClick
+   initClient,
+   LoadAPI,
+   handleSignInClick,
+   handleSignOutClick
 } from "./../modules/sheets.js"
-
+import {CLIENT_ID,
+   API_KEY,
+   SCOPES,
+   DISCOVERY_DOCS
+} from "./../modules/credentials.js"
 document
 .getElementById("authorize_button")
-.addEventListener("click",handleAuthClick)
+.addEventListener("click",handleSignInClick)
+document
+.getElementById("signout_button")
+.addEventListener("click",handleSignOutClick)
 
-document.getElementById("signout_button")
-.addEventListener("click",handleSignoutClick)
-
-gapiLoaded()
-
-gisLoaded()
+LoadAPI()

@@ -1,130 +1,63 @@
+
+import "https://apis.google.com/js/api.js"
+//import "https://accounts.google.com/gsi/client"
 import {
    CLIENT_ID,
    API_KEY,SCOPES,
-   DISCOVERY_DOC,
+   DISCOVERY_DOCS,
 } from 
 "./credentials.js"
-//import "https://accounts.google.com/gsi/client"
-//<!--   <script async defer type="text/javascrip
-// const CLIENT_ID = '782340290651-dvh3coksj8oplephm4h6u4d8pdi7i4jv.apps.googleusercontent.com';
-     // const API_KEY = 'AIzaSyA3KY-zyck80RUM-8POgcTYiKEtGTmLE6Y';
+import {
+   SPREADSHEET_ID
+}from "./sheetMaquinas.js"
 
-      // Discovery doc URL for APIs used by the quickstart
-   //   const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
+function processData(response){
+   console.log("data")
+}
+function processError(err){
+   console.log("error")
+}
+function updateStatus(isSignedIn) {
+      if (isSignedIn) {
+        getData();
+      }
+    }
+const sheet_params ={
+   spreadsheetId:SPREADSHEET_ID,
+   ranges:["maquinas!A1:C10"],
+   includeGridData:true
+}
+async function initClient(){
+   const params = {
+      'apiKey':API_KEY,
+      'clientId': CLIENT_ID,
+      'scope': SCOPES,
+      'discoveryDocs':DISCOVERY_DOCS
+   }
+   let req = await gapi.client.init(params)
+   req.then(function(){
+      alert("then")
+      gapi.auth2.getAuthInstance().isSignedIn.listen(updateStatus)
+      updateStatus(gapi.auth2.getAuthInstance().isSignedIn.get())
+   })
+}
+function getData(){
+   alert("getData")
+   let request = 
+   gapi.client.sheets.spreadsheets.get(sheet_params)
+   
+   request.then(processData,processError)
+}
+function LoadAPI(){
+   gapi.load('client:auth2',initClient)
+}
 
-      // Authorization scopes required by the API; multiple scopes can be
-      // included, separated by spaces.
-//const SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly';
-      let tokenClient;
-      let gapiInited = false;
-      let gisInited = false;
-
-      document.getElementById('authorize_button').style.visibility = 'hidden';
-      document.getElementById('signout_button').style.visibility = 'hidden';
-
-      /**
-       * Callback after api.js is loaded.
-       */
-      function gapiLoaded() {
-        gapi.load('client', initializeGapiClient);
-      }
-export {gapiLoaded}
-      /**
-       * Callback after the API client is loaded. Loads the
-       * discovery doc to initialize the API.
-       */
-      async function initializeGapiClient() {
-        await gapi.client.init({
-          apiKey: API_KEY,
-          discoveryDocs: [DISCOVERY_DOC],
-        });
-        gapiInited = true;
-        maybeEnableButtons();
-      }
-
-      /**
-       * Callback after Google Identity Services are loaded.
-       */
-      function gisLoaded() {
-        tokenClient = google.accounts.oauth2.initTokenClient({
-          client_id: CLIENT_ID,
-          scope: SCOPES,
-          callback: '', // defined later
-        });
-        gisInited = true;
-        maybeEnableButtons();
-      }
-export {gisLoaded}
-      /**
-       * Enables user interaction after all libraries are loaded.
-       */
-      function maybeEnableButtons() {
-        if (gapiInited && gisInited) {
-          document.getElementById('authorize_button').style.visibility = 'visible';
-        }
-      }
-
-      /**
-       *  Sign in the user upon button click.
-       */
-      function handleAuthClick() {
-        tokenClient.callback = async (resp) => {
-          if (resp.error !== undefined) {
-            throw (resp);
-          }
-          document.getElementById('signout_button').style.visibility = 'visible';
-          document.getElementById('authorize_button').innerText = 'Refresh';
-          await listMajors();
-        };
-        if (gapi.client.getToken() === null) {
-          // Prompt the user to select a Google Account and ask for consent to share their data
-          // when establishing a new session.
-          tokenClient.requestAccessToken({prompt: 'consent'});
-        } else {
-          // Skip display of account chooser and consent dialog for an existing session.
-          tokenClient.requestAccessToken({prompt: ''});
-        }
-      }
-export {handleAuthClick}
-      /**
-       *  Sign out the user upon button click.
-       */
-      function handleSignoutClick() {
-        const token = gapi.client.getToken();
-        if (token !== null) {
-          google.accounts.oauth2.revoke(token.access_token);
-          gapi.client.setToken('');
-          document.getElementById('content').innerText = '';
-          document.getElementById('authorize_button').innerText = 'Authorize';
-          document.getElementById('signout_button').style.visibility = 'hidden';
-        }
-      }
-export {handleSignoutClick}
-      /**
-       * Print the names and majors of students in a sample spreadsheet:
-       * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-       */
-      async function listMajors() {
-        let response;
-        try {
-          // Fetch first 10 files
-          response = await gapi.client.sheets.spreadsheets.values.get({
-            spreadsheetId: '15xylkcHWFk9_sBDSE1rNyet7FLkwxEZSTol6h3CmsrU',
-            range: 'maquinas!A2:C',
-            majorDimension:'ROWS'
-          });
-        } catch (err) {
-          document.getElementById('content').innerText = err.message;
-          return;
-        }
-        const range = response.result;
-        if (!range || !range.values || range.values.length == 0) {
-          document.getElementById('content').innerText = 'No values found.';
-          return;
-        }
-        // Flatten to string to display
-        const output = range.values.reduce(
-            (str, row) => `${str}${row[0]},${row[1]}, ${row[2]}\n`,
-            '');
-        document.getElementById('content').innerText = output;
-      }
+function handleSignInClick(event){
+   gapi.auth2.getAuthInstance().signIn()
+}
+function handleSignOutClick(event){
+   gapi.auth2.getAuthInstance().signOut()
+}
+export {initClient,LoadAPI,handleSignInClick,
+   handleSignOutClick
+}
