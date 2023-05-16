@@ -1,63 +1,34 @@
-
 import "https://apis.google.com/js/api.js"
-//import "https://accounts.google.com/gsi/client"
-import {
-   CLIENT_ID,
-   API_KEY,SCOPES,
-   DISCOVERY_DOCS,
-} from 
-"./credentials.js"
-import {
-   SPREADSHEET_ID
-}from "./sheetMaquinas.js"
+import {CLIENT_ID,// '782340290651-dvh3coksj8oplephm4h6u4d8pdi7i4jv.apps.googleusercontent.com' 
+ API_KEY,// 'AIzaSyA3KY-zyck80RUM-8POgcTYiKEtGTmLE6Y'
+ DISCOVERY_DOCS,
+ SCOPES
+} from "./../modules/credentials.js"
+    
+      // TODO(developer): Set to client ID and API key from the Developer Console
+     let tokenClient;
+     let gapiInited = false;
+     let gisInited = false;
+      
 
-function processData(response){
-   console.log("data")
-}
-function processError(err){
-   console.log("error")
-}
-function updateStatus(isSignedIn) {
-      if (isSignedIn) {
-        getData();
+      // Discovery doc URL for APIs used by the quickstart
+     // const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
+
+      // Authorization scopes required by the API; multiple scopes can be
+      // included, separated by spaces.
+     // const SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly';
+
+     
+
+      document.getElementById('authorize_button').style.visibility = 'hidden';
+      document.getElementById('signout_button').style.visibility = 'hidden';
+      gapi.load("client",initializeGapiClient)
+      
+      async function initializeGapiClient() {
+         await gapi.client.init({
+            apiKey: API_KEY,
+            discoveryDocs: DISCOVERY_DOCS,
+         });
+         gapiInited = true;
+         maybeEnableButtons();
       }
-    }
-const sheet_params ={
-   spreadsheetId:SPREADSHEET_ID,
-   ranges:["maquinas!A1:C10"],
-   includeGridData:true
-}
-async function initClient(){
-   const params = {
-      'apiKey':API_KEY,
-      'clientId': CLIENT_ID,
-      'scope': SCOPES,
-      'discoveryDocs':DISCOVERY_DOCS
-   }
-   let req = await gapi.client.init(params)
-   req.then(function(){
-      alert("then")
-      gapi.auth2.getAuthInstance().isSignedIn.listen(updateStatus)
-      updateStatus(gapi.auth2.getAuthInstance().isSignedIn.get())
-   })
-}
-function getData(){
-   alert("getData")
-   let request = 
-   gapi.client.sheets.spreadsheets.get(sheet_params)
-   
-   request.then(processData,processError)
-}
-function LoadAPI(){
-   gapi.load('client:auth2',initClient)
-}
-
-function handleSignInClick(event){
-   gapi.auth2.getAuthInstance().signIn()
-}
-function handleSignOutClick(event){
-   gapi.auth2.getAuthInstance().signOut()
-}
-export {initClient,LoadAPI,handleSignInClick,
-   handleSignOutClick
-}
